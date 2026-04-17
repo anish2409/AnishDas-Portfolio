@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Anish Das — ML Engineer & Data Analyst</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet"/>
+<style>
+:root{--c-bg:#0a0a0f;--c-surface:#111118;--c-glass:rgba(255,255,255,0.04);--c-border:rgba(255,255,255,0.08);--c-border2:rgba(255,255,255,0.14);--c-text:#f0ede8;--c-muted:#7a7a8a;--c-sub:#4a4a5a;--c-accent:#6ee7b7;--c-accent2:#818cf8;--c-gold:#f59e0b;--f-display:'Syne',sans-serif;--f-body:'DM Sans',sans-serif;--f-mono:'DM Mono',monospace;--r-sm:8px;--r-md:14px;--r-lg:20px;--r-xl:28px;--ease:cubic-bezier(0.16,1,0.3,1)}
+[data-theme="light"]{--c-bg:#f8f7f4;--c-surface:#ffffff;--c-glass:rgba(0,0,0,0.03);--c-border:rgba(0,0,0,0.08);--c-border2:rgba(0,0,0,0.14);--c-text:#0f0e0d;--c-muted:#6b6b7a;--c-sub:#aaaabc;--c-accent:#059669;--c-accent2:#4f46e5;--c-gold:#d97706}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--c-bg);color:var(--c-text);font-family:var(--f-body);font-weight:300;line-height:1.75;overflow-x:hidden;transition:background .4s var(--ease),color .4s var(--ease)}
+a{color:inherit;text-decoration:none}
+nav{position:fixed;top:0;left:0;right:0;z-index:900;display:flex;align-items:center;justify-content:space-between;padding:1.25rem 4vw;background:rgba(10,10,15,0.75);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--c-border);transition:background .4s}
+[data-theme="light"] nav{background:rgba(248,247,244,0.8)}
+.nav-logo{font-family:var(--f-display);font-size:1.1rem;font-weight:700;letter-spacing:-.02em;display:flex;align-items:center;gap:8px}
+.nav-dot{width:8px;height:8px;border-radius:50%;background:var(--c-accent);display:inline-block;animation:pulse 2s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.8)}}
+.nav-links{display:flex;align-items:center;gap:2rem}
+.nav-links a{font-size:.78rem;font-weight:400;color:var(--c-muted);letter-spacing:.06em;text-transform:uppercase;transition:color .2s}
+.nav-links a:hover{color:var(--c-text)}
+.theme-btn{background:var(--c-glass);border:1px solid var(--c-border);border-radius:99px;padding:6px 14px;cursor:pointer;font-size:.75rem;font-family:var(--f-mono);color:var(--c-muted);transition:all .2s}
+.theme-btn:hover{border-color:var(--c-border2);color:var(--c-text)}
+.hero{min-height:100vh;display:flex;align-items:center;padding:8rem 4vw 5rem;position:relative;overflow:hidden}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(var(--c-border) 1px,transparent 1px),linear-gradient(90deg,var(--c-border) 1px,transparent 1px);background-size:60px 60px;mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,black 30%,transparent 100%);-webkit-mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,black 30%,transparent 100%)}
+.hero-glow{position:absolute;top:-10%;left:40%;width:700px;height:500px;border-radius:50%;background:radial-gradient(ellipse,rgba(110,231,183,.08) 0%,transparent 70%);pointer-events:none;transition:transform 1s var(--ease)}
+.hero-content{position:relative;z-index:2;max-width:1440px;margin:0 auto;width:100%}
+.hero-top{display:flex;align-items:flex-start;gap:3rem;margin-bottom:3rem}
+.hero-text{flex:1}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:var(--f-mono);font-size:.72rem;color:var(--c-accent);border:1px solid rgba(110,231,183,.25);border-radius:99px;padding:6px 16px;margin-bottom:2rem;background:rgba(110,231,183,.06);letter-spacing:.06em}
+.live-dot{width:6px;height:6px;border-radius:50%;background:var(--c-accent);animation:pulse 2s infinite}
+h1{font-family:var(--f-display);font-size:clamp(2.4rem,5.5vw,4.6rem);font-weight:800;line-height:1.06;letter-spacing:-.04em;margin-bottom:1.5rem;max-width:900px}
+h1 .em{color:var(--c-accent)}
+h1 .ghost{-webkit-text-stroke:1px var(--c-muted);color:transparent;transition:color .3s,-webkit-text-stroke .3s;cursor:default}
+h1 .ghost:hover{color:var(--c-text);-webkit-text-stroke:0}
+.hero-sub{font-size:1.1rem;color:var(--c-muted);max-width:650px;line-height:1.75;margin-bottom:2.5rem;font-weight:300}
+.cta-row{display:flex;flex-wrap:wrap;gap:12px}
+.btn-p{background:var(--c-accent);color:#0a0a0f;padding:13px 26px;border-radius:var(--r-md);font-family:var(--f-display);font-weight:700;font-size:.88rem;letter-spacing:-.01em;border:none;cursor:pointer;transition:transform .2s var(--ease),box-shadow .2s;display:inline-flex;align-items:center;gap:8px}
+.btn-p:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(110,231,183,.28)}
+.btn-g{background:transparent;color:var(--c-text);padding:12px 24px;border-radius:var(--r-md);border:1px solid var(--c-border2);cursor:pointer;font-size:.88rem;transition:all .2s;display:inline-flex;align-items:center;gap:8px}
+.btn-g:hover{background:var(--c-glass);border-color:var(--c-muted)}
+.photo-container{display:flex;flex-direction:column;align-items:center;gap:1.2rem;flex-shrink:0}
+.photo-slot{width:170px;height:170px;border-radius:var(--r-xl);border:2px dashed var(--c-border2);display:flex;flex-direction:column;align-items:center;justify-content:center;color:var(--c-sub);font-size:.7rem;font-family:var(--f-mono);text-align:center;transition:border-color .2s,background .2s;background:var(--c-glass)}
+.photo-slot:hover{border-color:var(--c-accent);background:rgba(110,231,183,.04)}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--c-border);border-radius:var(--r-lg);overflow:hidden;border:1px solid var(--c-border);max-width:800px}
+.stat{background:var(--c-surface);padding:1.4rem 1.6rem;transition:background .2s}
+.stat:hover{background:var(--c-glass)}
+.stat-n{font-family:var(--f-display);font-size:1.9rem;font-weight:800;letter-spacing:-.04em;line-height:1;margin-bottom:.2rem}
+.stat-n .a{color:var(--c-accent)}
+.stat-l{font-size:.7rem;color:var(--c-muted);font-family:var(--f-mono);letter-spacing:.03em}
+.sep{border:none;border-top:1px solid var(--c-border);max-width:1440px;margin:0 auto}
+section{padding:5.5rem 4vw;max-width:1440px;margin:0 auto}
+.s-tag{font-family:var(--f-mono);font-size:.68rem;letter-spacing:.15em;color:var(--c-accent);text-transform:uppercase;margin-bottom:.85rem;display:flex;align-items:center;gap:10px}
+.s-tag::before{content:'';width:20px;height:1px;background:var(--c-accent)}
+h2{font-family:var(--f-display);font-size:clamp(1.7rem,3.2vw,2.6rem);font-weight:800;letter-spacing:-.04em;line-height:1.1;margin-bottom:2.75rem}
+h2 .m{color:var(--c-muted);font-weight:400}
+.about-lay{display:grid;grid-template-columns:1fr 380px;gap:4.5rem;align-items:start}
+.paras p{font-size:.97rem;color:var(--c-muted);line-height:1.85;margin-bottom:1.4rem;font-weight:300}
+.paras p strong{color:var(--c-text);font-weight:500}
+.pill{color:var(--c-accent);font-family:var(--f-mono);font-size:.88em;background:rgba(110,231,183,.08);padding:1px 8px;border-radius:4px}
+.a-cards{display:flex;flex-direction:column;gap:12px}
+.a-card{background:var(--c-surface);border:1px solid var(--c-border);border-radius:var(--r-md);padding:1.5rem;transition:border-color .25s,transform .25s var(--ease)}
+.a-card:hover{border-color:var(--c-border2);transform:translateX(-4px)}
+.a-card-tag{font-family:var(--f-mono);font-size:.65rem;letter-spacing:.08em;text-transform:uppercase;margin-bottom:.45rem}
+.a-card h4{font-family:var(--f-display);font-size:.92rem;font-weight:600;margin-bottom:.3rem}
+.a-card p{font-size:.78rem;color:var(--c-muted);line-height:1.6}
+.tg{color:var(--c-accent)}.tp{color:var(--c-accent2)}.to{color:var(--c-gold)}
+.proj-list{display:grid;grid-template-columns:repeat(auto-fit, minmax(400px, 1fr));gap:1.5rem}
+.pc{background:var(--c-surface);border:1px solid var(--c-border);border-radius:var(--r-xl);padding:2.25rem;display:flex;flex-direction:column;gap:1.5rem;transition:border-color .3s,transform .3s var(--ease);position:relative;overflow:hidden}
+.pc::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,var(--c-glass) 0%,transparent 60%);opacity:0;transition:opacity .3s}
+.pc:hover{border-color:var(--c-border2);transform:translateY(-3px)}
+.pc:hover::before{opacity:1}
+.pi{font-family:var(--f-mono);font-size:.67rem;color:var(--c-muted);letter-spacing:.08em;text-transform:uppercase;margin-bottom:.9rem;display:flex;align-items:center;gap:8px}
+.pi span{background:var(--c-glass);border:1px solid var(--c-border);padding:3px 10px;border-radius:99px}
+.pt{font-family:var(--f-display);font-size:1.4rem;font-weight:700;letter-spacing:-.03em;margin-bottom:.65rem}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:1.1rem}
+.tag{font-family:var(--f-mono);font-size:.68rem;padding:4px 11px;border-radius:99px;border:1px solid var(--c-border);color:var(--c-muted);background:var(--c-glass);letter-spacing:.03em}
+.pb{list-style:none;padding:0;margin-bottom:1.4rem;flex:1}
+.pb li{font-size:.875rem;color:var(--c-muted);padding:.35rem 0;border-bottom:1px solid var(--c-border);display:flex;gap:10px;align-items:flex-start;line-height:1.65}
+.pb li:last-child{border-bottom:none}
+.pb li::before{content:'→';color:var(--c-accent);font-size:.82rem;flex-shrink:0;margin-top:3px}
+.pb li strong{color:var(--c-text);font-weight:500}
+.impact{display:inline-flex;align-items:center;gap:7px;background:rgba(110,231,183,.1);border:1px solid rgba(110,231,183,.2);border-radius:99px;padding:5px 14px;font-size:.75rem;color:var(--c-accent);font-family:var(--f-mono);margin-bottom: 1rem;}
+.pl{display:flex;flex-wrap:wrap;gap:9px}
+.plb{display:flex;align-items:center;justify-content:center;gap:5px;background:var(--c-glass);border:1px solid var(--c-border);border-radius:var(--r-sm);padding:9px 16px;font-size:.75rem;color:var(--c-muted);cursor:pointer;transition:all .2s;font-family:var(--f-mono);text-align:center;flex:1}
+.plb:hover{border-color:var(--c-border2);color:var(--c-text)}
+.plb.live{border-color:rgba(110,231,183,.3);color:var(--c-accent)}
+.plb.live:hover{background:rgba(110,231,183,.07)}
+.sk-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.sg{background:var(--c-surface);border:1px solid var(--c-border);border-radius:var(--r-lg);padding:2rem;transition:border-color .25s,transform .25s var(--ease)}
+.sg:hover{border-color:var(--c-border2);transform:translateY(-4px)}
+.sg-icon{width:42px;height:42px;border-radius:var(--r-sm);display:flex;align-items:center;justify-content:center;font-size:1.1rem;margin-bottom:1.2rem}
+.ig{background:rgba(110,231,183,.12);color:var(--c-accent)}
+.ip{background:rgba(129,140,248,.12);color:var(--c-accent2)}
+.io{background:rgba(245,158,11,.12);color:var(--c-gold)}
+.sg h3{font-family:var(--f-display);font-size:1.1rem;font-weight:600;letter-spacing:-.02em;margin-bottom:1.25rem}
+.sk-items{display:flex;flex-direction:column;gap:12px}
+.sk-row{display:flex;align-items:center;gap:10px;font-size:.85rem}
+.sk-row .sn{width:140px;color:var(--c-muted);font-weight:300}
+.sk-bar{flex:1;height:3px;background:var(--c-border);border-radius:99px;overflow:hidden}
+.sk-fill{height:100%;border-radius:99px;background:var(--c-accent);transition:width 1.3s var(--ease)}
+.sk-fill.p{background:var(--c-accent2)}.sk-fill.o{background:var(--c-gold)}
+.certs-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.cc{background:var(--c-surface);border:1px solid var(--c-border);border-radius:var(--r-lg);padding:1.8rem;display:flex;flex-direction:column;gap:1rem;transition:border-color .25s,transform .25s var(--ease)}
+.cc:hover{border-color:var(--c-border2);transform:translateY(-4px)}
+.ci-badge{font-family:var(--f-mono);font-size:.63rem;letter-spacing:.08em;text-transform:uppercase;padding:4px 10px;border-radius:99px;border:1px solid var(--c-border);color:var(--c-muted);display:inline-block;align-self:flex-start}
+.ct{font-family:var(--f-display);font-size:1rem;font-weight:600;line-height:1.35}
+.cd{font-size:.8rem;color:var(--c-muted);line-height:1.6;flex:1}
+.cprev{height:100px;border:1px dashed var(--c-border);border-radius:var(--r-sm);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;color:var(--c-sub);font-size:.67rem;font-family:var(--f-mono);cursor:pointer;transition:border-color .2s,background .2s;background:var(--c-glass);text-align:center;padding:.5rem;overflow:hidden}
+.cprev:hover{border-color:var(--c-accent);color:var(--c-accent);background:rgba(110,231,183,.04)}
+.con-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
+.con-intro h3{font-family:var(--f-display);font-size:1.8rem;font-weight:700;letter-spacing:-.03em;margin-bottom:1rem}
+.con-intro p{font-size:.95rem;color:var(--c-muted);line-height:1.8;margin-bottom:2rem;font-weight:300}
+.con-email{font-family:var(--f-mono);font-size:.9rem;color:var(--c-accent);border:1px solid rgba(110,231,183,.25);border-radius:var(--r-md);padding:16px 20px;display:flex;align-items:center;justify-content:space-between;background:rgba(110,231,183,.04);transition:background .2s;cursor:pointer}
+.con-email:hover{background:rgba(110,231,183,.09)}
+.lk-list{display:flex;flex-direction:column;gap:12px}
+.lk{background:var(--c-surface);border:1px solid var(--c-border);border-radius:var(--r-md);padding:1.2rem 1.4rem;display:flex;align-items:center;gap:14px;transition:border-color .2s,transform .2s var(--ease);cursor:pointer}
+.lk:hover{border-color:var(--c-border2);transform:translateX(4px)}
+.lk-icon{width:40px;height:40px;border-radius:var(--r-sm);background:var(--c-glass);border:1px solid var(--c-border);display:flex;align-items:center;justify-content:center;font-family:var(--f-mono);color:var(--c-muted);flex-shrink:0}
+.lk-info{flex:1}
+.lk-name{font-size:.95rem;font-weight:500;font-family:var(--f-display)}
+.lk-desc{font-size:.78rem;color:var(--c-muted)}
+.lk-arr{color:var(--c-muted);font-size:.9rem;transition:transform .2s}
+.lk:hover .lk-arr{transform:translateX(4px);color:var(--c-text)}
+footer{border-top:1px solid var(--c-border);padding:2.5rem 4vw;max-width:1440px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+.f-brand{font-family:var(--f-display);font-size:.9rem;font-weight:700;letter-spacing:-.02em}
+.f-copy{font-family:var(--f-mono);font-size:.7rem;color:var(--c-sub)}
+.f-avail{font-family:var(--f-mono);font-size:.7rem;color:var(--c-accent);display:flex;align-items:center;gap:6px}
+.f-avail::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--c-accent);animation:pulse 2s infinite}
+
+/* Guaranteed Visibility Fix */
+.reveal { opacity: 1 !important; transform: translateY(0) !important; }
+
+@media(max-width:1024px){.sk-grid, .certs-grid {grid-template-columns: repeat(2, 1fr)}}
+@media(max-width:768px){nav{padding:1rem 1.25rem}.nav-links{display:none}.hero{padding:7rem 1.25rem 4rem}.hero-top{flex-direction:column-reverse;gap:2rem}.stats{grid-template-columns:1fr 1fr}section{padding:4rem 1.25rem}.about-lay{grid-template-columns:1fr}.proj-list{grid-template-columns:1fr}.sk-grid{grid-template-columns:1fr}.certs-grid{grid-template-columns:1fr}.con-grid{grid-template-columns:1fr}footer{padding:2rem 1.25rem}}
+@media(max-width:480px){.stats{grid-template-columns:1fr}.sk-row .sn{width:100px}}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo"><span class="nav-dot"></span> Anish Das</div>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#skills">Skills</a>
+    <a href="#credentials">Credentials</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <button class="theme-btn" id="themeBtn" onclick="toggleTheme()">&#9681; Light</button>
+</nav>
+
+<section class="hero" id="home">
+  <div class="hero-grid"></div>
+  <div class="hero-glow" id="glow"></div>
+  <div class="hero-content">
+    <div class="hero-top">
+      <div class="hero-text">
+        <div class="eyebrow reveal"><span class="live-dot"></span> Open to 2026 Placements &middot; ML Engineer &amp; Data Analyst</div>
+        <h1 class="reveal">
+          Translating advanced<br/>
+          <span class="em">AI research</span> into<br/>
+          <span class="ghost">revenue-impact systems.</span>
+        </h1>
+        <p class="hero-sub reveal">Final-year MCA candidate at NiT &middot; Published AI Researcher in Federated Learning &middot; Predictive Analytics Developer who quantifies business risk at scale.</p>
+        <div class="cta-row reveal">
+          <a href="mailto:anishdasad2003@gmail.com" class="btn-p">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,12 2,6"/></svg>
+            Get in Touch
+          </a>
+          <a href="https://github.com/anish2409" target="_blank" class="btn-g">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+            GitHub
+          </a>
+          <a href="https://linkedin.com/in/anish-das-785b97271" target="_blank" class="btn-g">LinkedIn</a>
+        </div>
+      </div>
+      <div class="photo-container reveal">
+        <div class="photo-slot" style="padding: 0; overflow: hidden; border-style: solid;">
+          <img src="your-photo.jpeg" alt="Anish Das" style="width: 100%; height: 100%; object-fit: cover;">
+        </div>
+        <a href="your_resume.pdf" download class="btn-g" style="font-size: .8rem; padding: 10px 20px; width: 100%; justify-content: center;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download Resume
+        </a>
+      </div>
+    </div>
+    <div class="stats reveal">
+      <div class="stat"><div class="stat-n">8.<span class="a">48</span></div><div class="stat-l">// MCA CGPA &middot; NIT</div></div>
+      <div class="stat"><div class="stat-n">&#8377;<span class="a">50L</span>+</div><div class="stat-l">// Revenue risk surfaced</div></div>
+      <div class="stat"><div class="stat-n"><span class="a">1</span> Conf.</div><div class="stat-l">// Oral presentation &middot; CMT</div></div>
+    </div>
+  </div>
+</section>
+
+<hr class="sep"/>
+
+<section id="about">
+  <div class="s-tag reveal">01 &middot; About</div>
+  <h2 class="reveal">The engineer<br/><span class="m">behind the numbers.</span></h2>
+  <div class="about-lay">
+    <div class="paras reveal">
+      <p>Anish holds a <strong>Master of Computer Applications</strong> from Narula Institute of Technology (8.48 CGPA) and a Bachelor of Computer Applications from MAKAUT (8.43 CGPA), built on a rigorous foundation at Kalyani University Experimental High School (Madhyamik: 68%, HS: 77.4%). His academic record reflects deliberate technical depth — not breadth accumulated for its own sake. He architects data systems with <span class="pill">Python</span> and <span class="pill">SQL</span>, underpinned by a strong command of Data Structures and Algorithms in <span class="pill">Java</span>, granting him the algorithmic precision that separates robust production pipelines from brittle prototypes.</p>
+      
+      <p>At the <strong>International Conference on Signal Analysis for Smart Systems</strong> (Microsoft CMT), Anish delivered an Oral Presentation on <strong>Privacy-Enhanced Federated Learning</strong> — an enterprise-grade challenge at the convergence of distributed systems, differential privacy, and ML model integrity. Acceptance into a peer-reviewed forum validates his capacity to engage with research problems at the frontier of applied AI.</p>
+      
+      <a href="your-presentation-paper.pdf" target="_blank" class="btn-g" style="margin-bottom: 2rem;">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+        View Full Presentation Paper
+      </a>
+
+      <p>Beyond technical output, Anish serves as a Lead Volunteer at <strong>Hat Baralei Bondhu</strong>, driving continuous grassroots social impact. His organizational efforts span from executing a complete Mock Madhyamik Examination for 60+ underprivileged students, to managing essential relief programs—including winter blanket distribution for the homeless, providing food and clothing to marginalized children at brick kilns, and leading community tree plantation drives.</p>
+    </div>
+    <div class="a-cards reveal">
+      <div class="a-card"><div class="a-card-tag tg">Peer-Reviewed &middot; Oral Presentation</div><h4>Privacy-Enhanced Federated Learning</h4><p>Int. Conference on Signal Analysis for Smart Systems &middot; Microsoft CMT &middot; Distributed ML &amp; differential privacy at enterprise scale.</p></div>
+      <div class="a-card"><div class="a-card-tag tp">Academic Excellence</div><h4>MCA &middot; NIT &mdash; 8.48 CGPA</h4><p>BCA &middot; MAKAUT &mdash; 8.43 CGPA. Consistent high-performance across two rigorous graduate programs.</p></div>
+      <div class="a-card"><div class="a-card-tag to">Leadership &middot; Social Impact</div><h4>Lead Volunteer &mdash; Hat Baralei Bondhu</h4><p>Driving grassroots initiatives: managed mock exams for 60+ students, organized tree plantations, and led food, clothing & winter relief drives for marginalized communities.</p></div>
+    </div>
+  </div>
+</section>
+
+<hr class="sep"/>
+
+<section id="projects">
+  <div class="s-tag reveal">02 &middot; Projects</div>
+  <h2 class="reveal">Business case studies<br/><span class="m">in applied ML &amp; BI.</span></h2>
+  <div class="proj-list">
+
+    <div class="pc reveal">
+      <div class="pi"><span>Project 01</span> &middot; LLM Engineering</div>
+      <div class="pt">AI-Powered Business Intelligence Analyst Chatbot</div>
+      <div class="tags"><span class="tag">LLM API</span><span class="tag">NLP</span><span class="tag">Python</span><span class="tag">SQL</span><span class="tag">Real-time BI</span></div>
+      <ul class="pb">
+        <li><strong>Integrated LLM APIs with a structured relational backend</strong> to build a conversational BI interface — enabling natural-language queries over operational data without requiring SQL literacy.</li>
+        <li>Designed the <strong>NLP layer to parse ambiguous business questions</strong>, generate contextually accurate SQL, and return real-time predictive insights.</li>
+        <li>Demonstrates <strong>production-oriented LLM engineering</strong>: prompt architecture, API orchestration, and context window management.</li>
+      </ul>
+      <div class="impact">LLM + SQL fusion &middot; Natural-language BI at scale</div>
+      <div class="pl">
+        <a href="https://github.com/anish2409" target="_blank" class="plb"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg> Source Code</a>
+        <a href="#" class="plb live">&#9679; Live Demo</a>
+      </div>
+    </div>
+
+    <div class="pc reveal">
+      <div class="pi"><span>Project 02</span> &middot; Customer Intelligence</div>
+      <div class="pt">Customer Churn &amp; Revenue Risk Analysis</div>
+      <div class="tags"><span class="tag">XGBoost</span><span class="tag">Scikit-learn</span><span class="tag">Power BI</span><span class="tag">Python</span><span class="tag">7,000+ records</span></div>
+      <ul class="pb">
+        <li><strong>Engineered a full predictive pipeline</strong> from raw CRM data through feature engineering and model training — deploying XGBoost over 7,000+ customer records.</li>
+        <li><strong>Built an executive-ready Power BI dashboard</strong> surfacing churn probability scores, cohort risk breakdowns, and segment-level revenue attribution.</li>
+        <li>Translated model output into a financial lens, <strong>quantifying &#8377;50L+ in at-risk ARR</strong> — demonstrating capacity to bridge ML inference and P&amp;L-level business logic.</li>
+      </ul>
+      <div class="impact">&#8377;50L+ revenue risk surfaced &middot; Exec-ready BI</div>
+      <div class="pl">
+        <a href="https://github.com/anish2409" target="_blank" class="plb"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg> Source Code</a>
+        <a href="#" class="plb live">&#9679; Live Demo</a>
+      </div>
+    </div>
+
+    <div class="pc reveal">
+      <div class="pi"><span>Project 03</span> &middot; Data Architecture</div>
+      <div class="pt">Vendor Performance &amp; Strategic ETL Pipeline</div>
+      <div class="tags"><span class="tag">SQLite</span><span class="tag">MySQL</span><span class="tag">ETL</span><span class="tag">Pandas</span><span class="tag">Supply Chain</span></div>
+      <ul class="pb">
+        <li><strong>Architected a normalized relational database schema</strong> for a multi-vendor supply chain model — designing entity relationships and constraint logic ensuring referential integrity.</li>
+        <li>Built <strong>complex multi-join SQL queries with window functions</strong> and aggregations to surface vendor performance metrics, and delivery variance analysis.</li>
+        <li>Implemented a <strong>full ETL pipeline with validation checkpoints and transformation logging</strong> — ensuring data accuracy and audit traceability.</li>
+      </ul>
+      <div class="impact">Normalized schema &middot; E2E ETL with audit logging</div>
+      <div class="pl">
+        <a href="https://github.com/anish2409" target="_blank" class="plb"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg> Source Code</a>
+        <a href="#" class="plb live">&#9679; Live Demo</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="sep"/>
+
+<section id="skills">
+  <div class="s-tag reveal">03 &middot; Technical Arsenal</div>
+  <h2 class="reveal">Core competency<br/><span class="m">pillars.</span></h2>
+  <div class="sk-grid">
+    <div class="sg reveal">
+      <div class="sg-icon ig">&#123;&#125;</div>
+      <h3>Programming &amp; Backend</h3>
+      <div class="sk-items">
+        <div class="sk-row"><span class="sn">Java (DSA)</span><div class="sk-bar"><div class="sk-fill" style="width:88%"></div></div></div>
+        <div class="sk-row"><span class="sn">Python</span><div class="sk-bar"><div class="sk-fill" style="width:92%"></div></div></div>
+        <div class="sk-row"><span class="sn">SQL</span><div class="sk-bar"><div class="sk-fill" style="width:86%"></div></div></div>
+      </div>
+    </div>
+    <div class="sg reveal">
+      <div class="sg-icon ip">&#9672;</div>
+      <h3>AI &amp; Machine Learning</h3>
+      <div class="sk-items">
+        <div class="sk-row"><span class="sn">Federated Learning</span><div class="sk-bar"><div class="sk-fill p" style="width:82%"></div></div></div>
+        <div class="sk-row"><span class="sn">XGBoost &amp; RF</span><div class="sk-bar"><div class="sk-fill p" style="width:88%"></div></div></div>
+        <div class="sk-row"><span class="sn">NLP &amp; LLM</span><div class="sk-bar"><div class="sk-fill p" style="width:80%"></div></div></div>
+      </div>
+    </div>
+    <div class="sg reveal">
+      <div class="sg-icon io">&#9638;</div>
+      <h3>Data Architecture</h3>
+      <div class="sk-items">
+        <div class="sk-row"><span class="sn">Power BI</span><div class="sk-bar"><div class="sk-fill o" style="width:90%"></div></div></div>
+        <div class="sk-row"><span class="sn">Pandas &amp; Scikit</span><div class="sk-bar"><div class="sk-fill o" style="width:88%"></div></div></div>
+        <div class="sk-row"><span class="sn">ETL Pipelines</span><div class="sk-bar"><div class="sk-fill o" style="width:84%"></div></div></div>
+        <div class="sk-row"><span class="sn">SQLite &amp; MySQL</span><div class="sk-bar"><div class="sk-fill o" style="width:86%"></div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="sep"/>
+
+<section id="credentials">
+  <div class="s-tag reveal">04 &middot; Credentials</div>
+  <h2 class="reveal">Verified certifications<br/><span class="m">&amp; academic record.</span></h2>
+  <div class="certs-grid">
+    <div class="cc reveal">
+      <span class="ci-badge">Oracle Cloud</span>
+      <div class="ct">OCI Generative AI Professional</div>
+      <div class="cd">Advanced certification demonstrating expertise in implementing and deploying generative AI solutions on Oracle Cloud Infrastructure.</div>
+      <div class="cprev">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" opacity=".6"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21,15 16,10 5,21"/></svg>
+        <span>View Credential</span>
+      </div>
+    </div>
+    <div class="cc reveal">
+      <span class="ci-badge">Coursera</span>
+      <div class="ct">Google Data Analytics Professional</div>
+      <div class="cd">Foundational data analytics certification covering the data life cycle, cleaning, robust analysis, and executive-ready visualization techniques.</div>
+      <div class="cprev"> 
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" opacity=".6"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21,15 16,10 5,21"/></svg>
+      </div>
+    </div>
+    <div class="cc reveal">
+      <span class="ci-badge">PW Skills</span>
+      <div class="ct">Data Science Masters 2.0</div>
+      <div class="cd">Comprehensive masters-level curriculum spanning statistics, ML, deep learning, and production data science workflows with hands-on projects.</div>
+      <div class="cprev">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" opacity=".6"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21,15 16,10 5,21"/></svg>
+        <span>View Credential</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="sep"/>
+
+<section id="contact">
+  <div class="s-tag reveal">05 &middot; Contact</div>
+  <h2 class="reveal">Let's build something<br/><span class="m">worth measuring.</span></h2>
+  <div class="con-grid">
+    <div class="con-intro reveal">
+      <h3>Open to 2026 placements<br/>across ML &amp; Data roles.</h3>
+      <p>Whether you're evaluating for a Machine Learning Engineer, Data Analyst, or AI Research role — reach out directly. Every project here is a representative sample of how I think, build, and quantify impact.</p>
+      <a href="mailto:anishdasad2003@gmail.com" class="con-email"><span>anishdasad2003@gmail.com</span><span>&#8594;</span></a>
+    </div>
+    <div class="lk-list reveal">
+      <a href="https://github.com/anish2409" target="_blank" class="lk">
+        <div class="lk-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+        </div>
+        <div class="lk-info"><div class="lk-name">GitHub</div><div class="lk-desc">View architecture &amp; open source</div></div><span class="lk-arr">&#8594;</span>
+      </a>
+      <a href="https://leetcode.com/u/Anish_Das" target="_blank" class="lk">
+        <div class="lk-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M13.483 0a1.374 1.374 0 0 0-.961.438L7.116 6.226l-3.854 4.126a5.266 5.266 0 0 0-1.209 2.104 5.35 5.35 0 0 0-.125.513 5.527 5.527 0 0 0 .062 2.362 5.83 5.83 0 0 0 .349 1.017 5.938 5.938 0 0 0 1.271 1.818l4.277 4.193.039.038c2.248 2.165 5.852 2.133 8.063-.074l2.396-2.392c.54-.54.54-1.414.003-1.955a1.378 1.378 0 0 0-1.951-.003l-2.396 2.392a3.021 3.021 0 0 1-4.205.038l-.02-.019-4.276-4.193c-.652-.64-.972-1.469-.948-2.263a2.68 2.68 0 0 1 .066-.252c.08-.24.165-.416.223-.526.041-.077.218-.323.468-.583l4.523-4.839c.652-.697 1.637-.697 2.289 0 .652.696.652 1.826 0 2.522l-2.115 2.262c-.54.577-.54 1.514 0 2.091.54.577 1.414.577 1.954 0l2.115-2.263c1.728-1.849 1.728-4.846 0-6.695L14.444.438A1.374 1.374 0 0 0 13.483 0zm4.013 14.582a1.374 1.374 0 0 0-.961.439l-2.616 2.798c-.54.578-.54 1.515 0 2.092.54.577 1.414.577 1.954 0l2.616-2.798c.54-.577.54-1.514 0-2.092a1.374 1.374 0 0 0-.993-.439z"/></svg>
+        </div>
+        <div class="lk-info"><div class="lk-name">LeetCode</div><div class="lk-desc">Algorithmic problem solving in Java</div></div><span class="lk-arr">&#8594;</span>
+      </a>
+      <a href="https://linkedin.com/in/anish-das-785b97271" target="_blank" class="lk">
+        <div class="lk-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        </div>
+        <div class="lk-info"><div class="lk-name">LinkedIn</div><div class="lk-desc">Professional network &amp; endorsements</div></div><span class="lk-arr">&#8594;</span>
+      </a>
+      <a href="mailto:anishdasad2003@gmail.com" class="lk">
+        <div class="lk-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1-.9-2-2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+        </div>
+        <div class="lk-info"><div class="lk-name">Email</div><div class="lk-desc">Direct contact — fastest response</div></div><span class="lk-arr">&#8594;</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<hr class="sep"/>
+
+<footer>
+  <div class="f-brand">Anish Das</div>
+  <div class="f-avail">Available for 2026 placements</div>
+  <div class="f-copy">ML Engineer &amp; Data Analyst &middot; Kolkata, West Bengal &middot; &copy; 2026</div>
+</footer>
+
+<script>
+function toggleTheme(){const h=document.documentElement,d=h.getAttribute('data-theme')==='dark';h.setAttribute('data-theme',d?'light':'dark');document.getElementById('themeBtn').textContent=d?'\u25D0 Dark':'\u25D1 Light'}
+// Animation scripts simplified to ensure the content stays visible.
+const sObs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.querySelectorAll('.sk-fill').forEach(b=>{const w=b.style.width;b.style.width='0';setTimeout(()=>b.style.width=w,80)});sObs.unobserve(x.target)}})},{threshold:0.1});
+document.querySelectorAll('.sg').forEach(g=>sObs.observe(g));
+if(window.innerWidth>768){const g=document.getElementById('glow');document.addEventListener('mousemove',e=>{if(g){g.style.left=(e.clientX/window.innerWidth*80)+'%';g.style.top=(e.clientY/window.innerHeight*60-10)+'%'}})}
+</script>
+</body>
+</html>
